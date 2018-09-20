@@ -7,21 +7,13 @@ fileprivate extension CodingUserInfoKey {
   )!
 }
 
-fileprivate extension Decodable {
-  static func __decode(
-    from container: inout UnkeyedDecodingContainer
-  ) throws -> Self {
-    return try container.decode(self)
-  }
-}
-
 extension JSONDecoder {
   private struct FragmentDecodingBox<T : Decodable> : Decodable {
     var value: T
     init(from decoder: Decoder) throws {
       let type = decoder.userInfo[.fragmentBoxedType] as! T.Type
       var container = try decoder.unkeyedContainer()
-      self.value = try type.__decode(from: &container)
+      self.value = try container.decode(type)
     }
   }
 
