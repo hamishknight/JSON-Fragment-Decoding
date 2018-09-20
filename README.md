@@ -26,7 +26,7 @@ Add the following dependancy to your `Package.swift` file:
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/hamishknight/JSONFragmentDecoding.git", from: "0.1.0")
+  .package(url: "https://github.com/hamishknight/JSON-Fragment-Decoding.git", from: "0.1.0")
 ],
 ```
 
@@ -36,7 +36,7 @@ and then add the dependancy to any targets that need to use it:
 targets: [
   .target(
     name: "SomeTarget",
-    dependencies: ["JSONFragmentDecoding"]),
+    dependencies: ["JSON-Fragment-Decoding"]),
 ]
 ```
 
@@ -45,5 +45,5 @@ targets: [
 Add the following to your `Cartfile`:
 
 ```swift
-github "hamishknight/JSONFragmentDecoding" ~> 0.1
+github "hamishknight/JSON-Fragment-Decoding" ~> 0.1
 ```
