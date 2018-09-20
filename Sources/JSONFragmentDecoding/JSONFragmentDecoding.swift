@@ -44,6 +44,9 @@ extension JSONDecoder {
     // Box the JSON object in an array so we can pass it off to JSONDecoder.
     // The round-tripping through JSONSerialization isn't ideal, but it
     // ensures we do The Right Thing regardless of the encoding of `data`.
+    //
+    // FIX-ME: Try to detect encoding and add the '[]' delimeters directly to
+    // the data without going through `JSONSerialization`.
     let jsonObject = try JSONSerialization
       .jsonObject(with: data, options: .allowFragments)
     let boxedData = try JSONSerialization.data(withJSONObject: [jsonObject])
